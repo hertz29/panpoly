@@ -1,29 +1,56 @@
-# Foobar
+# Panoply Job System Assignment
 
-Foobar is a Python library for dealing with word pluralization.
+In the repo you can find:
+1. React app
+2. Job Management app
+3. Scheduler app
+
+React app - a simple web page that contains an execute job form and get jobs' logs buttom.
+
+Job Management - Service that handle the jobs management.
+  
+  Job Model:
+    Include a List of jobs.
+    The model insert a job into the list by inserting according to the job's next execution time.
+    
+   Job Fetcher:
+    Includes a loop that fetching job that need to be executed and send the job to be executed in the Scheduler.
+    Job Fetcher starts his loop in the service initation. 
+  
+  End-Points:
+    1. createJob : A job is received from the React app. The job is inserted into the JobModel job_list.
+    2. getLogs: return all jobs' important logs.
+    3. clearJobs: clear all jobs.
+    
+Scheduler - Service that execute the jobs.
+ 
+ The scheduler has set of JobExecutors and a Pendding Job queue.
+  
+ When an executeJob event is received, the Scheduler perform a validation By job id and job type. If the job is valid, the Scheduler pick an executor and execute the job. After the executor finish his work, he taking another job from the pendding queue.
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
+You can install the app by 
 ```bash
-pip install foobar
+npm install_panoply_app
+```
+## Runnig The Job System App
+
+you can run the app with docker's images
+
+MacOs
+```bash
+npm start
 ```
 
-## Usage
-
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
+Linux
+```bash
+npm start-linux
 ```
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Please make sure to update tests as appropriate.
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+## Job Logs:
+  you can get logs by press the relevant button.
+  
+  In the Scheduler logs you can see all relevant info
