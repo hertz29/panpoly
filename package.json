@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "source ./init.sh"
+    "start" :  "source ./init.sh",
+    "start-linux" : "./init_linux.sh",
+    "install_panoply_app" : "source ./install.sh"
   },
   "author": "",
   "license": "ISC"
