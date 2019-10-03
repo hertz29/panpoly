@@ -10,7 +10,7 @@ React app - a simple web page that contains an execute job form and get jobs' lo
 Job Management - Service that handle the jobs management.
   
   Job Model:
-    Include a List of jobs.
+    Includes a List of jobs.
     The model insert a job into the list by inserting according to the job's next execution time.
     
    Job Fetcher:
@@ -27,6 +27,8 @@ Scheduler - Service that execute the jobs.
  The scheduler has set of JobExecutors and a Pendding Job queue.
   
  When an executeJob event is received, the Scheduler perform a validation By job id and job type. If the job is valid, the Scheduler pick an executor and execute the job. After the executor finish his work, he taking another job from the pendding queue.
+ 
+ The Job schedule is in millisconds
 
 ## Installation
 
